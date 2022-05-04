@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.arrow.support.preferences;
+package com.sudoerz.support.preferences;
 
 import android.content.Context;
 import android.text.TextUtils;

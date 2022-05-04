@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017-2018 AICP
+ * Copyright (C) 2016-2019 crDroid Android Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,35 +14,33 @@
  * limitations under the License.
  */
 
-package com.arrow.support.preferences;
+package com.sudoerz.support.preferences;
 
 import android.content.Context;
 import android.util.AttributeSet;
 
-public class SystemSettingListPreference extends ListPreference {
+public class SystemSettingSeekBarPreference extends CustomSeekBarPreference {
 
-    public SystemSettingListPreference(Context context, AttributeSet attrs, int defStyle) {
+    public SystemSettingSeekBarPreference(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         setPreferenceDataStore(new SystemSettingsStore(context.getContentResolver()));
     }
 
-    public SystemSettingListPreference(Context context, AttributeSet attrs) {
+    public SystemSettingSeekBarPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
         setPreferenceDataStore(new SystemSettingsStore(context.getContentResolver()));
     }
 
-    public SystemSettingListPreference(Context context) {
-        super(context);
+    public SystemSettingSeekBarPreference(Context context) {
+        super(context, null);
         setPreferenceDataStore(new SystemSettingsStore(context.getContentResolver()));
     }
 
     @Override
     protected void onSetInitialValue(boolean restoreValue, Object defaultValue) {
-        // This is what default ListPreference implementation is doing without respecting
-        // real default value:
-        //setValue(restoreValue ? getPersistedString(mValue) : (String) defaultValue);
-        // Instead, we better do
-        setValue(restoreValue ? getPersistedString((String) defaultValue) : (String) defaultValue);
+        if (defaultValue == null) {
+            defaultValue = 0;
+        }
+        setValue(restoreValue ? getPersistedInt((Integer) defaultValue) : (Integer) defaultValue);
     }
-
 }
