@@ -16,7 +16,7 @@
 -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="mia.support">
+    package="com.sudoerz.support">
 
     <uses-sdk
         android:minSdkVersion="27" />
