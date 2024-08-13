@@ -16,15 +16,8 @@
 -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.everest.support">
+    package="com.sudoerz.support">
 
     <uses-sdk
         android:minSdkVersion="27" />
-
-            <permission android:name="lineageos.permission.MANAGE_REMOTE_PREFERENCES"
-                        android:protectionLevel="signature|privileged" />
-
-            <protected-broadcast android:name="lineageos.intent.action.UPDATE_PREFERENCE" />
-            <protected-broadcast android:name="lineageos.intent.action.REFRESH_PREFERENCE" />
-
 </manifest>
